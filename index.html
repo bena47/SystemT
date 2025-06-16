@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inventory Management System</title>
-    <link href= css rel="stylesheet" type="text/css>
+    <link rel="stylesheet" href="CSS/link.css" type="text/css">
 </head>
 <body>
     <header>
@@ -357,3 +357,34 @@
                 </div>
             </div>
         </div>
+        <script>
+        // Tab switching functionality
+        document.querySelectorAll('.nav-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                // Hide all dashboards
+                document.querySelectorAll('.dashboard-content').forEach(dash => {
+                    dash.classList.remove('active');
+                });
+                
+                // Show selected dashboard
+                const tabId = tab.getAttribute('data-tab');
+                document.getElementById(`${tabId}-dashboard`).classList.add('active');
+                
+                // Update user role display
+                const roleNames = {
+                    'admin': 'Administrator',
+                    'manager': 'Inventory Manager',
+                    'clerk': 'Store Clerk',
+                    'finance': 'Finance Officer'
+                };
+                document.querySelector('.role').textContent = roleNames[tabId];
+            });
+        });
+    </script>
+        </body>
+</html>
