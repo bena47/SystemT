@@ -32,7 +32,7 @@ $user_role = isset($roleNames[$user["Role_ID"]]) ? $roleNames[$user["Role_ID"]] 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inventory Management System</title>
-    <link rel="stylesheet" href="CSS/link.css" type="text/css">
+    <link rel="stylesheet" href="CSS/style.css" type="text/css">
 </head>
 <body>
     <header>
