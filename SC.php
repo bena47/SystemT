@@ -1,5 +1,6 @@
 <?php
 function renderStoreClerkDashboard() {
+    include("includes/header.php"); // Load header with CSS link
     echo '
     <section id="clerk-dashboard" class="dashboard-content">
         <!-- Dashboard Header -->

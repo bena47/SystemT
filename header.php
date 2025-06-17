@@ -5,7 +5,7 @@ echo '<!DOCTYPE html>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inventory Management System</title>
-    <link rel="stylesheet" href="CSS/style.css"> <!-- Ensure correct path -->
+    <link rel="stylesheet" href="CSS/style.css"> 
 </head>
 <body>';
 ?>

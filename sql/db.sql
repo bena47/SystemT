@@ -43,25 +43,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && strpos($_SERVER["CONTENT_TYPE"], "a
     <option value="R002">Inventory Clerk</option>
   </select>
   <button type="submit" class="btn"><i class="fas fa-plus"></i> Add User</button>
-</form>
-<script>
-  document.getElementById("addUserForm").addEventListener("submit", function (e) {
-    e.preventDefault();
+ </form>
 
-    const data = {
-      name: document.getElementById("name").value,
-      email: document.getElementById("email").value,
-      password: document.getElementById("password").value,
-      role_id: document.getElementById("role").value
-    };
+<?php
+$conn = new mysqli("localhost", "root", "", "user");
 
-    fetch("add_user.php", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data)
-    })
-    .then(res => res.json())
-    .then(response => alert(response.message))
-    .catch(err => console.error("Error:", err));
-  });
-</script>
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+?>

@@ -1,6 +1,6 @@
 <?php
 session_start(); // Start session to track user login
-require_once "config/db_connect.php"; // Connect to database
+require_once "config/connect.php"; // Connect to database
 
 // Redirect to login page if user is not logged in
 if (!isset($_SESSION["user_id"])) {

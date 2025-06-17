@@ -1,3 +1,4 @@
+
 <?php
 function renderInventoryDashboard() {
     include("includes/header.php"); // Load header with CSS link
