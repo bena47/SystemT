@@ -17,3 +17,30 @@
     </div>
 </body>
 </html>
+
+<?php
+session_start();
+require_once "config/db_connect.php";
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+
+    // Fetch user data from database
+    $sql = "SELECT * FROM User WHERE Email = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $user = $result->fetch_assoc();
+
+    if ($user && password_verify($password, $user["Password"])) {
+        $_SESSION["role"] = $user["Role_ID"]; // Store user role
+        $_SESSION["user_id"] = $user["User_ID"];
+        header("Location: dashboard.php"); // Redirect to central dashboard
+        exit();
+    } else {
+        echo "Invalid email or password.";
+    }
+}
+?>
