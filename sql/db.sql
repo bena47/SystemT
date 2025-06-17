@@ -1,5 +1,4 @@
 <?php
-<!-- filepath: c:\Server\htdocs\SystemT\SystemT\add_user.php -->
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && strpos($_SERVER["CONTENT_TYPE"], "application/json") !== false) {
     $data = json_decode(file_get_contents("php://input"), true);
@@ -10,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && strpos($_SERVER["CONTENT_TYPE"], "a
     $role_id = $data["role_id"];
 
     // Connect to MySQL
-    $conn = new mysqli("localhost", "youruser", "yourpass", "your_database");
+    $conn = new mysqli("localhost", "root", "", "user");
 
     if ($conn->connect_error) {
         echo json_encode(["message" => "Connection failed: " . $conn->connect_error]);

@@ -28,9 +28,9 @@
         <div class="dashboard">
             <div class="user-panel">
                 <div class="user-header">
-                    <div class="avatar">JD</div>
+                    <div class="avatar">USER</div>
                     <div class="user-info">
-                        <h2>John Doe</h2>
+                        <h2>MR/MRS</h2>
                         <span class="role">Administrator</span>
                     </div>
                 </div>
