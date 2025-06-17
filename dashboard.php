@@ -1,6 +1,7 @@
 <?php
 session_start(); // Start session to track logged-in user
 
+<?php include("includes/header.php"); ?>
 // Include dashboard files
 include("includes/admin_dashboard.php");
 include("includes/inventory_manager.php");

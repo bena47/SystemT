@@ -1,6 +1,7 @@
 <?php
 function renderInventoryDashboard() {
-    echo '
+    include("includes/header.php"); // Load header with CSS link
+echo '
     <section id="inventory-manager">
         <!-- Dashboard Header -->
         <div class="dashboard-header">
