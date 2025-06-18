@@ -20,7 +20,7 @@
 
 <?php
 session_start();
-require_once "config/db_connect.php";
+require_once "config/connect.php";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = $_POST["email"];

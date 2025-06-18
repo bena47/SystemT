@@ -1,6 +1,5 @@
 <?php
 function renderFinanceOfficerDashboard() {
-    include("includes/header.php"); // Load header with CSS link
     echo '
     <section id="finance-dashboard" class="dashboard-content">
         <!-- Dashboard Header -->
