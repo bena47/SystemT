@@ -1,6 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store Clerk Dashboard</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> <!-- Icons -->
+</head>
+<body>
+
+
 <?php
 function renderStoreClerkDashboard() {
-    include("includes/header.php"); // Load header with CSS link
     echo '
     <section id="clerk-dashboard" class="dashboard-content">
         <!-- Dashboard Header -->
@@ -79,4 +90,7 @@ function renderStoreClerkDashboard() {
         </div>
     </section>';
 }
+renderStoreClerkDashboard();
 ?>
+</body>
+</html>

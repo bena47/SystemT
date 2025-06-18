@@ -24,7 +24,8 @@ $roleNames = [
     "R003" => "Store Clerk",
     "R004" => "Finance Officer"
 ];
-$user_role = isset($roleNames[$user["Role_ID"]]) ? $roleNames[$user["Role_ID"]] : "Unknown Role";
+$user_role = ($user && isset($roleNames[$user["Role_ID"]])) ? $roleNames[$user["Role_ID"]] : "Unknown Role";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
