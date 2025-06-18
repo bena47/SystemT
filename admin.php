@@ -1,14 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrator Dashboard</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
 
 <?php
 function renderAdminDashboard() {
-    include("includes/header.php"); // Load header with CSS link
     echo '
     <section id="admin-dashboard" class="dashboard-content active">
         <!-- Dashboard Header -->
         <div class="dashboard-header">
             <h2><i class="fas fa-user-shield"></i> Administrator Dashboard</h2>
             <div class="actions">
-                <button class="btn"><i class="fas fa-plus"></i> Add User</button>
+                <button class="btn"> id="addUserBtn"><i class="fas fa-user-plus"></i> Add User</button>
             </div>
         </div>
 
@@ -29,6 +37,27 @@ function renderAdminDashboard() {
                     </ul>
                 </div>
             </div>
+
+            <!-- User Form Modal -->
+    <div id="addUserModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add New User</h2>
+            <form id="addUserForm">
+                <input type="text" id="name" placeholder="User Name" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <select id="role">
+                    <option value="R001">Administrator</option>
+                    <option value="R002">Inventory Manager</option>
+                    <option value="R003">Store Clerk</option>
+                    <option value="R004">Finance Officer</option>
+                </select>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
 
             <!-- Access Control -->
             <div class="card">
@@ -80,40 +109,57 @@ function renderAdminDashboard() {
         </div>
     </section>';
 }
+renderAdminDashboard();
 ?>
             
-            
-            
-            
-  
-            
-        
-    <script>
-  document.querySelector(".btn").addEventListener("click", function () {
-    alert("User added successfully!");
-    // You can replace this with a modal, form popup, etc.
-  });
-</script>
-<script>
-  document.getElementById("addUserForm").addEventListener("submit", function (e) {
-    e.preventDefault();
+   <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const addUserBtn = document.getElementById("addUserBtn");
+    const addUserModal = document.getElementById("addUserModal");
+    const closeBtn = document.querySelector(".close");
 
-    const data = {
-      name: document.getElementById("name").value,
-      email: document.getElementById("email").value,
-      password: document.getElementById("password").value,
-      role_id: document.getElementById("role").value
-    };
+    // Open modal when button is clicked
+    if (addUserBtn && addUserModal) {
+        addUserBtn.addEventListener("click", function () {
+            addUserModal.style.display = "block";
+        });
+    }
 
-    fetch("add_user.php", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data)
-    })
-    .then(res => res.json())
-    .then(response => alert(response.message))
-    .catch(err => console.error("Error:", err));
-  });
-</script>
-        </body>
+    // Close modal when 'x' is clicked
+    if (closeBtn && addUserModal) {
+      closeBtn.addEventListener("click", function () {
+        addUserModal.style.display = "none";
+      });
+    }
+
+    // Handle user submission
+    const addUserForm = document.getElementById("addUserForm");
+    if (addUserForm) {
+      addUserForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+      });
+    }
+    
+      const data = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        password: document.getElementById("password").value,
+        role_id: document.getElementById("role").value
+      };
+
+      fetch("add_user.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      })
+      .then(res => res.json())
+      .then(response => {
+        alert(response.message);
+        addUserModal.style.display = "none";
+      })
+      .catch(err => console.error("Error:", err));
+    });
+
+</script>         
+</body>
 </html>
