@@ -1,6 +1,6 @@
 <?php
 session_start(); // Start session to track logged-in user
-require_once "config/connect.php";
+require_once "connect.php";
 
 include("includes/header.php");
 
@@ -36,9 +36,19 @@ $roleNames = [
     "R003" => "Store Clerk",
     "R004" => "Finance Officer"
 ];
+?>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?= isset($roleNames[$user_role]) ? $roleNames[$user_role] : "Dashboard" ?></title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
 
-
+<?php
 // Render dashboard based on role
 switch ($user_role) {
     case 'R001':
@@ -57,3 +67,6 @@ switch ($user_role) {
         echo "<p>Access Denied: No valid dashboard assigned.</p>";
 }
 ?>
+
+</body>
+</html>

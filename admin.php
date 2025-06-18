@@ -117,6 +117,7 @@ renderAdminDashboard();
     const addUserBtn = document.getElementById("addUserBtn");
     const addUserModal = document.getElementById("addUserModal");
     const closeBtn = document.querySelector(".close");
+    const addUserForm = document.getElementById("addUserForm");
 
     // Open modal when button is clicked
     if (addUserBtn && addUserModal) {
@@ -133,7 +134,7 @@ renderAdminDashboard();
     }
 
     // Handle user submission
-     const addUserForm = document.getElementById("addUserForm");
+     
     if (addUserForm) {
       addUserForm.addEventListener("submit", function (e) {
         e.preventDefault();
@@ -154,9 +155,12 @@ renderAdminDashboard();
       .then(res => res.json())
       .then(response => {
         alert(response.message);
+        addUserForm.reset();// clear form after submission
         addUserModal.style.display = "none";
       })
       .catch(err => console.error("Error:", err));
+      console.error("Error:", err);
+      alert("An error occurred while adding the user. Please try again.");
     });
     }
     });

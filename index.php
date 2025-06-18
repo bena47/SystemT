@@ -1,6 +1,6 @@
 <?php
 session_start(); // Start session to track user login
-require_once "config/connect.php"; // Connect to database
+require_once "connect.php"; // Connect to database
 
 // Redirect to login page if user is not logged in
 if (!isset($_SESSION["user_id"])) {
@@ -33,7 +33,7 @@ $user_role = ($user && isset($roleNames[$user["Role_ID"]])) ? $roleNames[$user["
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inventory Management System</title>
-    <link rel="stylesheet" href="CSS/style.css" type="text/css">
+    <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
     <header>
