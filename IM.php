@@ -1,7 +1,15 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Manager Dashboard</title>
+    <link rel="stylesheet" href="CSS/style.css"> <!-- Ensure the correct path -->
+</head>
+<body>
 
 <?php
 function renderInventoryDashboard() {
-    include("includes/header.php"); // Load header with CSS link
+    
 echo '
     <section id="inventory-manager">
         <!-- Dashboard Header -->
@@ -80,4 +88,7 @@ echo '
         </div>
     </section>';
 }
+renderInventoryDashboard();
 ?>
+</body>
+</html>
