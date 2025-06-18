@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Officer Dashboard</title>
+    <link rel="stylesheet" href="CSS/style.css"> 
+</head>
+<body>
+
 <?php
 function renderFinanceOfficerDashboard() {
     echo '
@@ -78,4 +88,7 @@ function renderFinanceOfficerDashboard() {
         </div>
     </section>';
 }
+renderFinanceOfficerDashboard();
 ?>
+</body>
+</html>

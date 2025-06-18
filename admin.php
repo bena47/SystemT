@@ -16,7 +16,7 @@ function renderAdminDashboard() {
         <div class="dashboard-header">
             <h2><i class="fas fa-user-shield"></i> Administrator Dashboard</h2>
             <div class="actions">
-                <button class="btn"> id="addUserBtn"><i class="fas fa-user-plus"></i> Add User</button>
+                <button class="btn" id="addUserBtn"><i class="fas fa-user-plus"></i> Add User</button>
             </div>
         </div>
 
@@ -133,19 +133,18 @@ renderAdminDashboard();
     }
 
     // Handle user submission
-    const addUserForm = document.getElementById("addUserForm");
+     const addUserForm = document.getElementById("addUserForm");
     if (addUserForm) {
       addUserForm.addEventListener("submit", function (e) {
         e.preventDefault();
-      });
-    }
-    
-      const data = {
-        name: document.getElementById("name").value,
-        email: document.getElementById("email").value,
-        password: document.getElementById("password").value,
-        role_id: document.getElementById("role").value
-      };
+
+        const data = {
+          name: document.getElementById("name").value,
+          email: document.getElementById("email").value,
+          password: document.getElementById("password").value,
+          role_id: document.getElementById("role").value
+        };
+
 
       fetch("add_user.php", {
         method: "POST",
@@ -159,7 +158,8 @@ renderAdminDashboard();
       })
       .catch(err => console.error("Error:", err));
     });
-
+    }
+    });
 </script>         
 </body>
 </html>
